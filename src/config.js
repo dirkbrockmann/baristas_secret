@@ -2,21 +2,24 @@ export default {
 	widgets:{
 		slider_size: 400,
 		slider_show: true,
-		slider_gap : 1.5,
-		slider_anchor: {x:1,y:8},
-		toggle_anchor: {x:7,y:4},
-		toggle_label_pos:"right",
-		playbutton_size: 120,
-		playbutton_anchor:{x:3,y:2},
-		backbutton_anchor:{x:4,y:5},
-		resetbutton_anchor:{x:2,y:5},
-		radio_anchor:{x:7,y:2},
-		radio_size:150,
-		radio_orientation:"horizontal",
-		radio_label_position:"top",
-		radio_shape:"rect",
+		slider_anchor: {x:1,y:9},
+		slider_girth:16,
+		slider_knob:18,
+		toggle_anchor: {x:4,y:11},
+		toggle_gap:6,
+		toggle_label_pos:"left",
+		button_size: 100,
+		button_anchor:{x:3,y:2},
+		button_gap:6,
+		fontsize:20,
+		textsize:60,
+		text_anchor:{x:6,y:6}
 	},
 	simulation: {
-		delay:0
+		delay:0,
+		water_color:"darkred",
+		empty_color:"white",
+		coffee_color:"black",
+		initial_waterdrop:2
 	}
 }

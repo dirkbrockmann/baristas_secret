@@ -1,5 +1,5 @@
 import * as widgets from "d3-widgets"
-import {range,map,toPairs} from "lodash-es"
+import {range,map,toPairs,round} from "lodash-es"
 
 import cfg from "./config.js"
 import parameters from "./parameters.js"
@@ -9,21 +9,13 @@ import {toArray,add_id_label,add_widget,get_variables,get_booleans,get_choices} 
 
 const variables = get_variables(parameters);
 const booleans = get_booleans(parameters);
-const choices = get_choices(parameters);
 
 add_id_label(variables)
 add_id_label(booleans)
-add_id_label(choices)
 
 const va = toArray(variables);
 const bo = toArray(booleans);
-const ch = toArray(choices);
 
-
-console.log(va)
-console.log(variables)
-
-console.log(toPairs(variables))
 
 const sliders = map(va,
 		v => widgets.slider()
@@ -32,70 +24,62 @@ const sliders = map(va,
 					.range(v.range)
 					.value(v.default)
 					.size(cfg.widgets.slider_size)
+					.girth(cfg.widgets.slider_girth)
+					.knob(cfg.widgets.slider_knob)
+					.fontsize(cfg.widgets.fontsize)
+	
 		);
 
 const toggles = map(bo, 
 		v => widgets.toggle()
-					.id(v.id).
-					label(v.label).
-					value(v.default)					
-		);
-
-const radios = map(ch, 
-		v => widgets.radio()
-					.choices(v.choices)
 					.id(v.id)
+					.label(v.label)
 					.value(v.default)
-					.orientation(cfg.widgets.radio_orientation)
-					.labelposition(cfg.widgets.radio_label_position)
+					.labelposition(cfg.widgets.toggle_label_pos)
+					.fontsize(cfg.widgets.fontsize)				
 		);
 
+toggles[1].label("Orli's Magic Switch")
 
 add_widget(bo,toggles);
 add_widget(va,sliders);
-add_widget(ch,radios);
 
 
-
-const go = widgets.button().actions(["play","pause"])
-const setup = widgets.button().actions(["back"])
-const reset = widgets.button().actions(["rewind"])
+const go = widgets.button().actions(["play","pause"]).size(cfg.widgets.button_size).id("play");
+const reset = widgets.button().actions(["rewind"]).size(cfg.widgets.button_size);
 		
-const buttons = [go,setup,reset];
-
+const buttons = [go,reset];
 
 export default (controls,grid)=>{
 
-	const sl_pos=grid.position(cfg.widgets.slider_anchor.x,range(sliders.length)
-			.map(x=>(cfg.widgets.slider_anchor.y+cfg.widgets.slider_gap*x)));
+	const sl_pos=grid.position(cfg.widgets.slider_anchor.x,cfg.widgets.slider_anchor.y);
+	const tg_pos=grid.position(range(2).map(i=>{
+		return cfg.widgets.toggle_anchor.x+cfg.widgets.toggle_gap*i
+	}),cfg.widgets.toggle_anchor.y)
 	
-	const tg_pos=grid.position(cfg.widgets.toggle_anchor.x,cfg.widgets.toggle_anchor.y);	
+	const text_pos = grid.position(cfg.widgets.text_anchor.x,cfg.widgets.text_anchor.y)
 
-	const ra_pos=grid.position(cfg.widgets.radio_anchor.x,cfg.widgets.radio_anchor.y);		
-	
-	sliders.forEach((sl,i) => sl.position(sl_pos[i]));
-	
+	controls.append("text").text(round(parameters.porosity.widget.value()*100,2).toFixed(2)+"%")
+		.attr("transform","translate("+text_pos.x+","+text_pos.y+")")
+		.style("font-size",cfg.widgets.textsize)
+		.style("text-anchor","middle")
+		.attr("id","text")
 
-	toggles[0].position(tg_pos).labelposition(cfg.widgets.toggle_label_pos)
-
-	radios[0].position(ra_pos)
-		.size(cfg.widgets.radio_size).shape(cfg.widgets.radio_shape)
+	toggles.forEach((tg,i) => tg.position(tg_pos[i]));
 	
-	go.position(grid.position(cfg.widgets.playbutton_anchor.x,cfg.widgets.playbutton_anchor.y))
-		.size(cfg.widgets.playbutton_size);
 	
-	reset.position(grid.position(cfg.widgets.backbutton_anchor.x,cfg.widgets.backbutton_anchor.y));
+	sliders[0].position(sl_pos).labelposition(cfg.widgets.toggle_label_pos)
 	
-	setup.position(grid.position(cfg.widgets.resetbutton_anchor.x,cfg.widgets.resetbutton_anchor.y));
+	go.position(grid.position(cfg.widgets.button_anchor.x,cfg.widgets.button_anchor.y))
 	
+	reset.position(grid.position(cfg.widgets.button_anchor.x+cfg.widgets.button_gap,cfg.widgets.button_anchor.y));
 
 	controls.selectAll(".slider").data(sliders).enter().append(widgets.widget);
 	controls.selectAll(".toggle").data(toggles).enter().append(widgets.widget);
 	controls.selectAll(".button").data(buttons).enter().append(widgets.widget);
-	controls.selectAll(".radio").data(radios).enter().append(widgets.widget)
 
 }
 
-export {sliders,toggles,radios,go,setup,reset,variables,booleans,choices}
+export {sliders,toggles,go,reset,variables,booleans}
 
 
