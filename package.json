@@ -1,8 +1,8 @@
 {
   "name": "@explorables/baristas_secret",
   "title": "Barista's Secret - Percolation on a lattice",
-  "version": "1.0.1",
-    "license": "CC-BY-4.0",
+  "version": "1.0.2",
+  "license": "ISC",
   "description": "This explorable illustrates the phenomenon of percolation, when e.g. a liquid like water moves through a porous medium, like coffee. The percolation process is a critical phenomenon that exhibits interesting properties at the critical porosity of the medium.",
   "repository": {
     "type": "git",
@@ -22,7 +22,6 @@
     "explorables",
     "visualization"
   ],
-  "license": "ISC",
   "dependencies": {
     "d3": "^7.8.2",
     "d3-widgets": "^1.0.23",
