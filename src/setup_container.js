@@ -31,7 +31,8 @@ export default (container_id,config)=>{
 		.classed(config.debug_lattice,config.debug)
 		.append("svg")
 		.attr("viewBox", "0 0 "+config.controls_size.width+" "+config.controls_size.height)
-
+		.style("width","100%")
+		.style("height","100%")		
 
 	if (config.controls_border){
 		controls.append("rect").attr("class","border")
