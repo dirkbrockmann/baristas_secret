@@ -6,7 +6,7 @@
 
 [![CC BY 4.0][cc-by-shield]][cc-by]
 
-This explorable illustrates the phenomenon of percolation, when e.g. a liquid like water moves through a porous medium, like coffee. The percolation process is a critical phenomenon that exhibits interesting properties at the critical porosity of the medium.
+This explorable illustrates the phenomenon of percolation, when e.g. a liquid like water moves through a porous medium, like coffee. The percolation process is a critical phenomenon that exhibits interesting properties at the critical porosity of the medium .
 
 The explorable is part of the [**Complexity Exporables Collection**](https://www.complexity-explorables.org). For more information about the system and its behavior consult the explorable
 > [**“Barista's Secret” - Percolation on a lattice**](https://www.complexity-explorables.org/explorables/baristas-secret/)
