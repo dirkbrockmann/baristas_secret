@@ -36,9 +36,9 @@ const update = (display,config) => {
 		ctx.fillRect(X(c[0].x),X(c[0].y),X(c[2].x)-X(c[0].x),X(c[2].y)-X(c[0].y))
 	})
 	
-	ctx.strokeStyle = "black";
-	ctx.lineWidth = 4;
-	ctx.strokeRect(0, 0, W, H);
+	// ctx.strokeStyle = "black";
+	// ctx.lineWidth = 4;
+	// ctx.strokeRect(0, 0, W, H);
 }
 
 const initialize = (display,config) => {
@@ -62,10 +62,10 @@ const initialize = (display,config) => {
 		ctx.fillRect(X(c[0].x),X(c[0].y),X(c[2].x)-X(c[0].x),X(c[2].y)-X(c[0].y))
 	})
 	
-	ctx.strokeStyle = "black";
-	ctx.lineWidth = 4;
-	ctx.strokeRect(0, 0, W, H);
-	
+	// ctx.strokeStyle = "black";
+	// ctx.lineWidth = 4;
+	// ctx.strokeRect(0, 0, W, H);
+	//
 }
 
 const go = (display,config) => {
@@ -83,9 +83,9 @@ const go = (display,config) => {
 		ctx.fillRect(X(c[0].x),X(c[0].y),X(c[2].x)-X(c[0].x),X(c[2].y)-X(c[0].y))
 	})
 	
-	ctx.strokeStyle = "black";
-	ctx.lineWidth = 4;
-	ctx.strokeRect(0, 0, W, H);
+	// ctx.strokeStyle = "black";
+// 	ctx.lineWidth = 4;
+// 	ctx.strokeRect(0, 0, W, H);
 
 	
 }

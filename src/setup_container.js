@@ -34,23 +34,8 @@ export default (container_id,config)=>{
 		.style("width","100%")
 		.style("height","100%")		
 
-	if (config.controls_border){
-		controls.append("rect").attr("class","border")
-		.attr("width",config.controls_size.width)
-		.attr("height",config.controls_size.height)
-	}
-	
-	if (config.display_border){
-		if (config.display_type=="svg"){
-		display.append("rect").attr("class","border")
-		.attr("width",config.display_size.width)
-		.attr("height",config.display_size.height)
-		} else {			
-			const ctx = display.node().getContext("2d");
-			ctx.strokeStyle = "black";
-			ctx.strokeRect(0, 0, config.display_size.width, config.display_size.height);
-		}
-	}
+	config.controls_border ? controls.classed("border",true) : controls.classed("border",false)
+	config.display_border ? display.classed("border",true) : display.classed("border",false)		
 
 
 	if (config.debug){		
