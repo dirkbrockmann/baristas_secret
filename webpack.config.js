@@ -15,10 +15,11 @@ module.exports = {
       new HtmlWebpackPlugin({
 		inject:'head' ,
         title: meta.title,
+	    subtitle:meta.subtitle,
 		library: name,
   		template: './src/index.html',
   		anchor: name+"_container",
-    	  description: meta.description,
+    	description: meta.description,
 		scriptLoading: 'blocking'
       }),
 	 // new BundleAnalyzerPlugin()
