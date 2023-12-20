@@ -18,9 +18,7 @@ const load = function (container_id,config=cfg) {
 	display = container.display;
 	controls = container.controls;
 	grid = container.grid;
-		
-
-	
+			
 	setup_controls(controls,grid); 
 	
 	setup_interactions(display,controls,config); 
