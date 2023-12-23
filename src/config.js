@@ -6,7 +6,7 @@ export default {
 		slider_girth:16,
 		slider_knob:18,
 		toggle_anchor: {x:4,y:11},
-		toggle_gap:6,
+		toggle_gap:7,
 		toggle_label_pos:"left",
 		button_size: 100,
 		button_anchor:{x:3,y:2},
