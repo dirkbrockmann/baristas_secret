@@ -11,7 +11,6 @@ export default {
 		button_size: 100,
 		button_anchor:{x:3,y:2},
 		button_gap:6,
-		fontsize:20,
 		textsize:60,
 		text_anchor:{x:6,y:6}
 	},
