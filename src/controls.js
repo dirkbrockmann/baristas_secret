@@ -26,7 +26,6 @@ const sliders = map(va,
 					.size(cfg.widgets.slider_size)
 					.girth(cfg.widgets.slider_girth)
 					.knob(cfg.widgets.slider_knob)
-			//		.fontsize(cfg.widgets.fontsize)
 	
 		);
 
@@ -36,7 +35,6 @@ const toggles = map(bo,
 					.label(v.label)
 					.value(v.default)
 					.labelposition(cfg.widgets.toggle_label_pos)
-				//	.fontsize(cfg.widgets.fontsize)				
 		);
 
 toggles[1].label("Orli's Magic Switch")
@@ -74,9 +72,9 @@ export default (controls,grid)=>{
 	
 	reset.position(grid.position(cfg.widgets.button_anchor.x+cfg.widgets.button_gap,cfg.widgets.button_anchor.y));
 
-	controls.selectAll(".slider").data(sliders).enter().append(widgets.widget);
-	controls.selectAll(".toggle").data(toggles).enter().append(widgets.widget);
-	controls.selectAll(".button").data(buttons).enter().append(widgets.widget);
+	controls.selectAll(null).data(sliders).enter().append(widgets.widget);
+	controls.selectAll(null).data(toggles).enter().append(widgets.widget);
+	controls.selectAll(null).data(buttons).enter().append(widgets.widget);
 
 }
 

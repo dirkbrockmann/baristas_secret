@@ -1,6 +1,3 @@
-// import './styles.css'
-// import './styles.module.css'
-
 import  'tachyons/css/tachyons.min.css'
 
 import cfg from "./container_config.js"
@@ -24,10 +21,8 @@ const load = function (container_id,config=cfg) {
 	controls = container.controls;
 	grid = container.grid;
 			
-	setup_controls(controls,grid); 
-	
+	setup_controls(controls,grid); 	
 	setup_interactions(display,controls,config); 
-	
 	setup_simulation(display,config)
 	
 }
