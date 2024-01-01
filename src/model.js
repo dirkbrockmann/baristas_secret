@@ -10,14 +10,10 @@ var agents = [];
 
 const initialize = () => {
 
-	// set/reset timer
 	param.timer={}; param.tick=0;
-	
-	
+
 	const N = param.N;
-	
-	const s = square(N).boundary("dirichlet").hood("n4")
-	
+	const s = square(N).boundary("dirichlet").hood("n4")	
 	agents = s.nodes;
 	
 	agents.forEach(a=>{
@@ -28,8 +24,7 @@ const initialize = () => {
 		}
 	})
 	
-	agents.filter(a=>{return dist(a,{x:0,y:0})<cfg.simulation.initial_waterdrop/param.N}).forEach(a=>{a.state="water";a.time=0})
-
+	agents.filter(a=>{return dist(a,{x:0,y:0})<cfg.simulation.initial_waterdrop/param.N}).forEach(a=>{a.state="water";a.time=0});
 	
 };
 
@@ -46,9 +41,6 @@ const go  = () => {
 	return stillroom;
 }
 
-const update = () => {
-	
-
-}
+const update = () => {}
 
 export {agents,initialize,go,update}

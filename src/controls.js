@@ -16,7 +16,6 @@ add_id_label(booleans)
 const va = toArray(variables);
 const bo = toArray(booleans);
 
-
 const sliders = map(va,
 		v => widgets.slider()
 					.id(v.id)
@@ -42,10 +41,8 @@ toggles[1].label("Orli's Magic Switch")
 add_widget(bo,toggles);
 add_widget(va,sliders);
 
-
 const go = widgets.button().actions(["play","pause"]).size(cfg.widgets.button_size).id("play");
 const reset = widgets.button().actions(["rewind"]).size(cfg.widgets.button_size);
-		
 const buttons = [go,reset];
 
 export default (controls,grid)=>{
