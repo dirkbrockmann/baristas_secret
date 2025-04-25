@@ -3696,7 +3696,7 @@ const md = (t, n, e = 12, r = 12) => {
   }, h = [0, 1], d = 0, p = null, _ = at().domain(h).range([0, r]).clamp(!0);
   const b = function(y, M, A = h) {
     const g = y.select("#slider_" + e);
-    _.domain(A), d = M, f(), c(), g.selectAll("." + m.handle).transition().attr("cx", _(M)), a && g.select("." + m.label).text(p + " = " + n(d));
+    _.domain(A), d = M, g.selectAll("." + m.handle).transition().attr("cx", _(M)), a && g.select("." + m.label).text(p + " = " + n(d)), f(), c();
   };
   return {
     type: t,
@@ -3799,7 +3799,7 @@ const md = (t, n, e = 12, r = 12) => {
     reset: function(c, h) {
       u = h;
       const d = c.select("#toggle_" + n);
-      d.selectAll("." + m.handle).transition().attr("cx", u ? 2 * e : 0), d.classed(m.selected, u);
+      d.selectAll("." + m.handle).transition().attr("cx", u ? 2 * e : 0), d.classed(m.selected, u), s();
     }
   };
 }, Xd = (t, n) => {
