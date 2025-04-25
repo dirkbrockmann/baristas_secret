@@ -12,14 +12,20 @@ var timer = {}
 const startstop = (display,controls,config) => {
 	ct.go.value() == 1 ? timer = interval(()=>iterate(display,controls,config),cfg.simulation.delay) : timer.stop()
 
+	controls.select("#slider_porosity")
+		.transition(1000).style("opacity",0)
+	controls.select("#slider_porosity").selectAll("*").style("pointer-events","none") 
 }
 
 export default (display,controls,config) => {
 	
 	ct.reset.update(()=>{
 		initialize(display,config)
-		controls.select("#button_play").transition(1000).style("opacity",1)
-		controls.select("#button_play").style("pointer-events",null)
+ 		controls.select("#button_play").transition(1000).style("opacity",null)
+		controls.select("#button_play").style("pointer-events",null) 
+	controls.select("#slider_porosity")
+		.transition(1000).style("opacity",null)
+	controls.select("#slider_porosity").selectAll("*").style("pointer-events",null) 
 	})	
 	
 	ct.go.update(()=>startstop(display,controls,config))	

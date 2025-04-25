@@ -43,6 +43,7 @@ add_widget(va,sliders);
 
 const go = widgets.button().actions(["play","pause"]).size(cfg.widgets.button_size).id("play");
 const reset = widgets.button().actions(["rewind"]).size(cfg.widgets.button_size);
+
 const buttons = [go,reset];
 
 export default (controls,grid)=>{
